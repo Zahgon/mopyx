@@ -16,22 +16,6 @@ def action(f: Callable[..., T]) -> Callable[..., T]:
 
     @functools.wraps(f)
     def action_wrapper(*args, **kw) -> Optional[T]:
-        global _update_index
-
-        if rendering.is_active_ignore_updates_renderer():
-            return None
-
-        try:
-            _update_index += 1
-
-            return f(*args, **kw)
-        finally:
-            _update_index -= 1
-
-            if _update_index == 0:
-                if rendering.is_debug_mode:
-                    print(f"{rendering.indent()}action: {f}")
-
-                rendering.call_registered_renderers()
+        pass
 
     return cast(Callable[..., T], action_wrapper)

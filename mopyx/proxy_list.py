@@ -65,15 +65,11 @@ class ListModelProxy(list):
 
     @action
     def extend(self, *argv, **kw):
-        result = super().extend(*argv, **kw)
-        self._mopyx_model._mopyx_register_refresh(self._mopyx_property_name)
-        return result
+        pass
 
     @action
     def insert(self, *argv, **kw):
-        result = super().insert(*argv, **kw)
-        self._mopyx_model._mopyx_register_refresh(self._mopyx_property_name)
-        return result
+        pass
 
     @action
     def pop(self, *argv, **kw):
@@ -89,12 +85,8 @@ class ListModelProxy(list):
 
     @action
     def reverse(self, *argv, **kw):
-        result = super().reverse(*argv, **kw)
-        self._mopyx_model._mopyx_register_refresh(self._mopyx_property_name)
-        return result
+        pass
 
     @action
     def sort(self, *argv, **kw):
-        result = super().sort(*argv, **kw)
-        self._mopyx_model._mopyx_register_refresh(self._mopyx_property_name)
-        return result
+        pass

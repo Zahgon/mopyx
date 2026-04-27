@@ -133,14 +133,7 @@ def render(*r_args, **r_kw) -> Union[Callable[..., Callable[..., T]], Callable[.
     def wrapper_builder(f: Callable[..., T]) -> Callable[..., T]:
         @functools.wraps(f)
         def render_wrapper(*args, **kw) -> T:
-            parent = renderers.active[-1] if renderers.active else None
-            renderer = RendererFunction(
-                parent=parent, f=f, _mode=_mode, ignore_updates=ignore_updates
-            )
-
-            renderer._set_args_kw(*args, **kw)
-
-            return renderer.render()
+            pass
 
         return render_wrapper
 
